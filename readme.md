@@ -14,7 +14,7 @@
 
 完成蒐集圖片後，第二步則是標註人臉，這裡採用cvat.ai網頁工具來標註，而標註完成後匯出**人臉位置資訊**於txt檔，資訊包含正規化後的x與y中心座標，及臉部寬度與高度。
 
-![Untitled](AI%20Capstone%20project#1%208089730f4476442092ea8eb8827e7977/Untitled.png)
+![Untitled](README/Untitled.png)
 
 txt 檔案格式 :
 <Object_class = 0> <x_center> <y_center> <width> <height>
@@ -25,7 +25,7 @@ txt 檔案格式 :
 
 此資料集原始共有183張照片，由此之中裁切出242張人臉圖像及隨機偏移裁切後之242張非人臉圖像，**共484張標註資料**。下圖即為裁切下的其中兩筆資料 :
 
-![Untitled](AI%20Capstone%20project#1%208089730f4476442092ea8eb8827e7977/Untitled%201.png)
+![Untitled](README/Untitled1.png)
 
 # **3. 演算法**
 
@@ -47,15 +47,15 @@ Viola-Jones 演算法主要是利用內部Adaboost演算法來訓練一系列簡
 | False Negative Rate | 0.59% | 0% |
 | Accuracy | 83.43% | 78.76% |
 
-![Untitled](AI%20Capstone%20project#1%208089730f4476442092ea8eb8827e7977/Untitled%202.png)
+![Untitled](README/Untitled2.png)
 
-![Untitled](AI%20Capstone%20project#1%208089730f4476442092ea8eb8827e7977/Untitled%203.png)
+![Untitled](README/Untitled3.png)
 
-![Untitled](AI%20Capstone%20project#1%208089730f4476442092ea8eb8827e7977/Untitled%204.png)
+![Untitled](README/Untitled4.png)
 
-![Untitled](AI%20Capstone%20project#1%208089730f4476442092ea8eb8827e7977/Untitled%205.png)
+![Untitled](README/Untitled5.png)
 
-![Untitled](AI%20Capstone%20project#1%208089730f4476442092ea8eb8827e7977/Untitled%206.png)
+![Untitled](README/Untitled6.png)
 
 ### **3.1.2 yolov8 algorithm**
 
@@ -73,21 +73,21 @@ YOLOv8是YOLO (You Only Look Once)目標檢測系列的最新版本，可以用�
 | False Negative Rate | 2.5% | 0% |
 | Accuracy | 87.5% | 81.6% |
 
-![Untitled](AI%20Capstone%20project#1%208089730f4476442092ea8eb8827e7977/Untitled%207.png)
+![Untitled](README/Untitled7.png)
 
-![Untitled](AI%20Capstone%20project#1%208089730f4476442092ea8eb8827e7977/Untitled%208.png)
+![Untitled](README/Untitled8.png)
 
 而訓練完模型後，也輸入照片進行人臉檢測，結果如下圖，前幾張圖接100%偵測到人臉，不過人數最多的那張辨識效果較差，只有44%人臉被偵測出來。
 
-![Untitled](AI%20Capstone%20project#1%208089730f4476442092ea8eb8827e7977/Untitled%209.png)
+![Untitled](README/Untitled9.png)
 
-![Untitled](AI%20Capstone%20project#1%208089730f4476442092ea8eb8827e7977/Untitled%2010.png)
+![Untitled](README/Untitled10.png)
 
-![Untitled](AI%20Capstone%20project#1%208089730f4476442092ea8eb8827e7977/Untitled%2011.png)
+![Untitled](README/Untitled11.png)
 
-![Untitled](AI%20Capstone%20project#1%208089730f4476442092ea8eb8827e7977/Untitled%2012.png)
+![Untitled](README/Untitled12.png)
 
-![Untitled](AI%20Capstone%20project#1%208089730f4476442092ea8eb8827e7977/Untitled%2013.png)
+![Untitled](README/Untitled13.png)
 
 ### **3.2 Unsupervised learning**
 
@@ -99,7 +99,7 @@ YOLOv8是YOLO (You Only Look Once)目標檢測系列的最新版本，可以用�
 
 使用K-Fold Cross Validation設定K=10，根據Adjusted Rand Index, Mutual Information, Homogeneity, Completeness, V-measure五項指標來看整體結果在分類上與真實類別的一致性與相關性高，誤差偏低顯示模型具有穩定性。
 
-![Untitled](AI%20Capstone%20project#1%208089730f4476442092ea8eb8827e7977/Untitled%2014.png)
+![Untitled](README/Untitled14.png)
 
 根據下表**Confusion Matrix**所計算評估指標結果，整體分類準確率高，FP rate和FN rate都很低，表現出整體分類上正確率高。
 
@@ -111,35 +111,35 @@ YOLOv8是YOLO (You Only Look Once)目標檢測系列的最新版本，可以用�
 
 模型訓練後也輸入相同照片進行人臉檢測，結果顯示全部都分類預測正確。
 
-![Untitled](AI%20Capstone%20project#1%208089730f4476442092ea8eb8827e7977/Untitled%2015.png)
+![Untitled](README/Untitled15.png)
 
-![Untitled](AI%20Capstone%20project#1%208089730f4476442092ea8eb8827e7977/Untitled%2016.png)
+![Untitled](README/Untitled16.png)
 
-![Untitled](AI%20Capstone%20project#1%208089730f4476442092ea8eb8827e7977/Untitled%2017.png)
+![Untitled](README/Untitled17.png)
 
-![Untitled](AI%20Capstone%20project#1%208089730f4476442092ea8eb8827e7977/Untitled%2018.png)
+![Untitled](README/Untitled18.png)
 
-![Untitled](AI%20Capstone%20project#1%208089730f4476442092ea8eb8827e7977/Untitled%2019.png)
+![Untitled](README/Untitled19.png)
 
 # **4. 實驗與分析**
 
 針對Viola-Jones algorithm實驗了迭代數T對於結果的影響，首先，FP rate整體比FN rate高的部分前面有提及，原因為部分圖片背景有許多較小的人臉於標註時未標註，但仍被偵測為人臉，因此誤認為是偵測錯誤。接著以趨勢來看，隨著迭代次數增加，模型學習樣本的特徵表現較好，將非人臉誤判為人臉的FP rate降低，同時保持了較低的FN rate，使整體判別準確率都偏高。不過趨勢上也能看出此模型性能在第六次迭代後趨於平緩，甚至偶有反向的情形發生，可能接近了algorithm的上限。
 
-![Untitled](AI%20Capstone%20project#1%208089730f4476442092ea8eb8827e7977/Untitled%2020.png)
+![Untitled](README/Untitled20.png)
 
 接著是K-means Clustering的部分，將K-Fold Cross Validation的K值為5及10做比較。首先在橫條圖顯示出K值由5改為10時，五者指標分數微幅提高。而在箱型圖顯示出Mutual Information的得分仍然最低，不過約從0.55提高至0.6；其餘指標約從0.8-0.85提高至0.85-0.9。值得注意的是在K=10時，每個指標都有一至多個明顯的異常值，可能是某一折的結果影響了整體得分。最後，散佈圖的分佈和結果在兩個圖中幾乎完全相同。這顯示出改變K的數值並沒有顯著影響K-means的結果。
 
-![Untitled](AI%20Capstone%20project#1%208089730f4476442092ea8eb8827e7977/Untitled%2021.png)
+![Untitled](README/Untitled21.png)
 
-![Untitled](AI%20Capstone%20project#1%208089730f4476442092ea8eb8827e7977/Untitled%2022.png)
+![Untitled](README/Untitled22.png)
 
-![Untitled](AI%20Capstone%20project#1%208089730f4476442092ea8eb8827e7977/Untitled%2023.png)
+![Untitled](README/Untitled23.png)
 
-![Untitled](AI%20Capstone%20project#1%208089730f4476442092ea8eb8827e7977/Untitled%2024.png)
+![Untitled](README/Untitled24.png)
 
-![Untitled](AI%20Capstone%20project#1%208089730f4476442092ea8eb8827e7977/Untitled%2025.png)
+![Untitled](README/Untitled25.png)
 
-![Untitled](AI%20Capstone%20project#1%208089730f4476442092ea8eb8827e7977/Untitled%2026.png)
+![Untitled](README/Untitled26.png)
 
 # **5. 討論**
 
