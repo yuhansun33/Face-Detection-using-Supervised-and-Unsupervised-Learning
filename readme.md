@@ -14,7 +14,7 @@
 
 完成蒐集圖片後，第二步則是標註人臉，這裡採用cvat.ai網頁工具來標註，而標註完成後匯出**人臉位置資訊**於txt檔，資訊包含正規化後的x與y中心座標，及臉部寬度與高度。
 
-![Untitled.png](README/Untitled.png)
+![Untitled](AI%20Capstone%20project#1%208089730f4476442092ea8eb8827e7977/Untitled.png)
 
 txt 檔案格式 :
 <Object_class = 0> <x_center> <y_center> <width> <height>
@@ -25,7 +25,7 @@ txt 檔案格式 :
 
 此資料集原始共有183張照片，由此之中裁切出242張人臉圖像及隨機偏移裁切後之242張非人臉圖像，**共484張標註資料**。下圖即為裁切下的其中兩筆資料 :
 
-![Untitled1.png](README/Untitled1.png)
+![Untitled](AI%20Capstone%20project#1%208089730f4476442092ea8eb8827e7977/Untitled%201.png)
 
 # **3. 演算法**
 
